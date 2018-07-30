@@ -1,9 +1,6 @@
 import cv2
 import numpy as np
-# import grid_window
-# from 
-# from .grid_window import Window
-# from ipcv.motion_tracking.grid_window import Window
+from ipcv.motion_tracking.histogram_based_motion_tracking.grid_window import Window
 
 ## Helper functions
 def is_num(s):
