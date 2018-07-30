@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from ipcv.motion_tracking.grid_window import Window
+from ipcv.motion_tracking.histogram_based_motion_tracking.grid_window import Window
 
 ## Helper functions
 def is_num(s):
@@ -183,7 +183,7 @@ if __name__ == "__main__":
     from os.path import isfile, join
     import os
     import os.path
-    import ipcv
+    # import ipcv
 
     # home = os.path.expanduser('~')
     # file_path = home + os.path.sep + 'src/python/examples/data'
@@ -191,7 +191,7 @@ if __name__ == "__main__":
     # file_path += os.path.sep + 'motion_tracking/woman/'
     # file_path += os.path.sep + 'motion_tracking/car/'
     # file_path += os.path.sep + 'motion_tracking/torus/'
-    file_path = 'video/hand/'
+    file_path = 'examples/hand/'
 
     # Treat folder as series of frames
     file_list = [f for f in listdir(file_path) if isfile(join(file_path, f))]
@@ -226,7 +226,8 @@ if __name__ == "__main__":
         img_container.append(frame)
 
         # Call gen_histograms with the current frame
-        frame_grid = ipcv.motion_tracking.gen_histograms(frame)
+        # frame_grid = ipcv.motion_tracking.gen_histograms(frame)
+        frame_grid = gen_histograms(frame)
 
         # If a background image has been calculated, compare the current frame
         if len(img_container)-1 != 0:
@@ -267,4 +268,4 @@ if __name__ == "__main__":
         cv2.waitKey(100)
 
     # Perform clean-up
-    ipcv.flush()
+    # ipcv.flush()
